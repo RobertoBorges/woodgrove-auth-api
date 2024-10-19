@@ -56,6 +56,12 @@ namespace woodgroveapi.Models
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("extension_0cae61cc83e94edd978ec2fde3c5f2f3_PromoCode")]
         public string promoCode { get; set; }
+
+        /// <summary>
+        /// SampleText
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string sampletext { get; set; }
     }
 
     public class AttributeCollectionStartResponse_ActionTypes

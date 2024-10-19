@@ -42,7 +42,8 @@ public class OnAttributeCollectionStartController : ControllerBase
 
         // Return the country and city
         r.data.actions[0].inputs.country = "es";
-        // r.data.actions[0].inputs.city = "Madrind";
+        r.data.actions[0].inputs.city = "Madrind";
+        r.data.actions[0].inputs.sampletext = "This is a demo for Airlift";
 
         // Return a promo code
         Random random = new Random();
