@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyVersion>1.0.0.15</AssemblyVersion>
+    <UserSecretsId>aspnet-woodgrove-auth-api-FBF1B85E-DADD-4187-9E01-DBB8923E80F7</UserSecretsId>
     <NoWarn>CS8618</NoWarn>
   </PropertyGroup>
 
