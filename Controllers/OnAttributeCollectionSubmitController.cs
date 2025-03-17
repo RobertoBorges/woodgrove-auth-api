@@ -31,6 +31,15 @@ public class OnAttributeCollectionSubmitController : ControllerBase
         //     return null;
         // }
 
+        // Log the HTTP request received for audit purposes
+        _logger.LogInformation("Received request: {0}", requestPayload);
+
+        // Log additional details from the HTTP request
+        _logger.LogInformation("Request Headers: {0}", Request.Headers);
+        _logger.LogInformation("Request Query String: {0}", Request.QueryString);
+        _logger.LogInformation("Request Method: {0}", Request.Method);
+        _logger.LogInformation("Request Path: {0}", Request.Path);
+
         // Track the page view 
         AppInsightsHelper.TrackApi("OnAttributeCollectionSubmit", this._telemetry, requestPayload.data);
 
