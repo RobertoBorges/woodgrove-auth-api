@@ -54,7 +54,7 @@ namespace woodgroveapi.Models
         /// Promotion code
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("extension_0cae61cc83e94edd978ec2fde3c5f2f3_PromoCode")]
+        [JsonPropertyName("extension_5565d5c40f0b4a0abf27f68ff8bb35eb_PromoCode")]
         public string promoCode { get; set; }
     }
 

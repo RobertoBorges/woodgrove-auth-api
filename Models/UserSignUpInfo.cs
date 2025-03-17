@@ -17,9 +17,9 @@ namespace woodgroveapi.Models
         public UserSignUpInfo_Attribute? country { get; set; }
         public UserSignUpInfo_Attribute? displayName { get; set; }
 
-        [JsonPropertyName("extension_0cae61cc83e94edd978ec2fde3c5f2f3_SpecialDiet")]
+        [JsonPropertyName("extension_5565d5c40f0b4a0abf27f68ff8bb35eb_SpecialDiet")]
         public UserSignUpInfo_Attribute? specialDiet { get; set; }
-        [JsonPropertyName("extension_0cae61cc83e94edd978ec2fde3c5f2f3_PromoCode")]
+        [JsonPropertyName("extension_5565d5c40f0b4a0abf27f68ff8bb35eb_PromoCode")]
         public UserSignUpInfo_Attribute? promoCode { get; set; }
     }
 
