@@ -123,6 +123,7 @@ public class OnAttributeCollectionSubmitController : ControllerBase
             r.data.actions[0].odatatype = AttributeCollectionSubmitResponse_ActionTypes.ContinueWithDefaultBehavior;
         }
 
+        AsyncApiHelper.FireAndForgetPost("OnAttributeCollectionSubmit", requestPayload.data, _logger);
         return r;
     }
 }
