@@ -14,11 +14,13 @@ public class OnAttributeCollectionSubmitController : ControllerBase
 {
     private readonly ILogger<OnAttributeCollectionSubmitController> _logger;
     private TelemetryClient _telemetry;
+    private readonly IConfiguration _configuration;
 
-    public OnAttributeCollectionSubmitController(ILogger<OnAttributeCollectionSubmitController> logger, TelemetryClient telemetry)
+    public OnAttributeCollectionSubmitController(ILogger<OnAttributeCollectionSubmitController> logger, TelemetryClient telemetry, IConfiguration configuration)
     {
         _logger = logger;
         _telemetry = telemetry;
+        _configuration = configuration;
     }
 
     [HttpPost(Name = "OnAttributeCollectionSubmit")]
@@ -123,7 +125,8 @@ public class OnAttributeCollectionSubmitController : ControllerBase
             r.data.actions[0].odatatype = AttributeCollectionSubmitResponse_ActionTypes.ContinueWithDefaultBehavior;
         }
 
-        AsyncApiHelper.FireAndForgetPost("OnAttributeCollectionSubmit", requestPayload.data, _logger);
+        AsyncApiHelper.FireAndForgetPost(_configuration.GetSection("EnternalWorkFlowURL").Value, requestPayload.data, _logger);
+
         return r;
     }
 }
