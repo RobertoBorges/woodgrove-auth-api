@@ -54,7 +54,7 @@ namespace woodgroveapi.Models
         public string? PreferredLanguage { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("extension_5565d5c40f0b4a0abf27f68ff8bb35eb_SpecialDiet")]
+        [JsonPropertyName("extension_1184f436af73453a821c14a648936912_SpecialDiet")]
         public string? SpecialDiet { get; set; }
     }
     public class AttributeCollectionSubmitResponse_AttributeError
@@ -70,7 +70,7 @@ namespace woodgroveapi.Models
         public string? country { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("extension_5565d5c40f0b4a0abf27f68ff8bb35eb_SpecialDiet")]
+        [JsonPropertyName("extension_1184f436af73453a821c14a648936912_SpecialDiet")]
         public string? specialDiet { get; set; }
     }
 
