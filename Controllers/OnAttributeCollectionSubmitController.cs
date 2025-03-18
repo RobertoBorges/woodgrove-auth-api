@@ -123,9 +123,8 @@ public class OnAttributeCollectionSubmitController : ControllerBase
         {
             // No issues have been identified, proceed to create the account
             r.data.actions[0].odatatype = AttributeCollectionSubmitResponse_ActionTypes.ContinueWithDefaultBehavior;
+            AsyncApiHelper.FireAndForgetPost(_configuration.GetSection("EnternalWorkFlowURL").Value, requestPayload.data, _logger);
         }
-
-        AsyncApiHelper.FireAndForgetPost(_configuration.GetSection("EnternalWorkFlowURL").Value, requestPayload.data, _logger);
 
         return r;
     }
