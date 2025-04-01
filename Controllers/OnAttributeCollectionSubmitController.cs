@@ -7,7 +7,7 @@ using woodgroveapi.Models;
 
 namespace woodgroveapi.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class OnAttributeCollectionSubmitController : ControllerBase
@@ -27,11 +27,11 @@ public class OnAttributeCollectionSubmitController : ControllerBase
     public AttributeCollectionSubmitResponse PostAsync([FromBody] AttributeCollectionRequest requestPayload)
     {
         // For Azure App Service with Easy Auth, validate the azp claim value
-        // if (!AzureAppServiceClaimsHeader.Authorize(this.Request))
-        // {
-        //     Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-        //     return null;
-        // }
+        if (!AzureAppServiceClaimsHeader.Authorize(this.Request))
+        {
+            Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            return null;
+        }
 
         // Log the HTTP request received for audit purposes
         _logger.LogInformation("Received request: {0}", requestPayload);

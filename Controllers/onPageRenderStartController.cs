@@ -7,7 +7,7 @@ using woodgroveapi.Models;
 namespace woodgroveapi.Controllers;
 
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class OnPageRenderStartController : ControllerBase
@@ -25,11 +25,11 @@ public class OnPageRenderStartController : ControllerBase
     public PageRenderStartResponse PostAsync([FromBody] PageRenderStartRequest requestPayload)
     {
         //For Azure App Service with Easy Auth, validate the azp claim value
-        //if (!AzureAppServiceClaimsHeader.Authorize(this.Request))
-        //{
-        //     Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-        //     return null;
-        //}
+        if (!AzureAppServiceClaimsHeader.Authorize(this.Request))
+        {
+            Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            return null;
+        }
 
         // Track the page view 
         IDictionary<string, string> moreProperties = new Dictionary<string, string>();
