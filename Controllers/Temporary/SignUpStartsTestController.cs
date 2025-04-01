@@ -1,5 +1,6 @@
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using woodgroveapi.Helpers;
 using woodgroveapi.Models;
