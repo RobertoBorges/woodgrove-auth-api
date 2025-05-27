@@ -2,6 +2,9 @@ using Microsoft.Extensions.Logging.AzureAppServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,12 @@ builder.Logging.AddFilter((provider, category, logLevel) =>
 });
 
 ConfigurationSection entraExternalIdCustomAuthTokenSettings = (ConfigurationSection)builder.Configuration.GetSection("EntraExternalIdCustomAuthToken");
+
+ConfigurationSection AzureAd = (ConfigurationSection)builder.Configuration.GetSection("AzureAd");
+
+// Default scheme sign-in flow
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(AzureAd, OpenIdConnectDefaults.AuthenticationScheme);
 
 // Reference: 
 // There is an issue validating the first party token with 
