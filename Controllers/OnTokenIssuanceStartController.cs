@@ -31,6 +31,8 @@ public class OnTokenIssuanceStartController : ControllerBase
         // Track the page view 
         AppInsightsHelper.TrackApi("OnTokenIssuanceStart", this._telemetry, requestPayload.data);
 
+        _logger.LogInformation("Received request: {0}", requestPayload);
+
         //For Azure App Service with Easy Auth, validate the azp claim value
         if (!AzureAppServiceClaimsHeader.Authorize(this.Request))
         {
